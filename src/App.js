@@ -4,6 +4,7 @@ import ArticalList from "./pages/ArticalList";
 import Navbar from "./components/Nav";
 import About from './pages/About'
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import NotFound from "./pages/404";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Route path="/artical-list" element={ <ArticalList></ArticalList>}></Route>
       <Route path="/artical/:name" element={ <Artical></Artical>}></Route>
       <Route path="/about" element={ <About></About>}></Route>
-
+      <Route path="*" element={<NotFound></NotFound>}></Route>
     </Routes>
     </div>
     
