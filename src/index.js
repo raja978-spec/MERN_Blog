@@ -1,3 +1,4 @@
+import 'whatwg-fetch' // helps to work our website on internet explorer
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
