@@ -45,4 +45,4 @@ app.post('/api/:name/artical-comments',async(req,res)=>{
     
 })
 app.post('/',(req,res)=>res.send(`Hello ${req.body.name}`))
-app.listen(5000,()=>console.log("Server running"))
+app.listen(5001,()=>console.log("Server running"))
