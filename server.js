@@ -1,6 +1,8 @@
 const express=require('express')
 const {MongoClient}=require('mongodb')
 
+// Fetch is sync built in function used on 
+// front end
 app=express()
 
 app.use(express.json())
