@@ -9,17 +9,19 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/api/articles/:name',async(req,res)=>{
-try{
-  const articalName=req.params.name;
-  const database= await MongoClient.connect('mongodb://localhost:27017')
-  const db=database.db('Mernblog');
-  const data=await db.collection('Articels').findOne({name:articalName})
-  res.status(200).json(data)
-  database.close()
+try {
+    const Name=req.params.name;
+    const client = new MongoClient('mongodb://127.0.0.1:27017');
+await client.connect();
+const db = client.db("MernBlog");
+const collec = db.collection('Articels');
+const data=await collec.findOne({name:Name})
+    res.status(200).send({"data":data})
+
+} catch (error) {
+   res.status(500).send({"err":error}) 
 }
-catch (error){
-    res.status(500).json({message:"Error",Error:error})
-}
+    
 })
 
 app.post('/api/:name/artical-comments',(req,res)=>{
