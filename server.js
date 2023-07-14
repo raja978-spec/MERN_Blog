@@ -24,10 +24,23 @@ const data=await collec.findOne({name:Name})
     
 })
 
-app.post('/api/:name/artical-comments',(req,res)=>{
-    const {name,comment}=req.body 
-    articelcomment[req.params.name].comment.push({"username":name,"comment":comment})
-    res.status(200).send(articelcomment[req.params.name])
+app.post('/api/:name/artical-comments',async(req,res)=>{
+    const {username,comments}=req.body 
+    const Name=req.params.name;
+    const client = new MongoClient('mongodb://127.0.0.1:27017');
+    await client.connect();
+    const db = client.db("MernBlog");
+    const collec = db.collection('Articels');
+    const updata=await collec.findOneAndUpdate({name:Name},{$set:{
+        comment:(collec.comment || []).concat({
+            username:username,
+            comments:comments
+        })
+}})
+
+        res.status(200).send({"data":await collec.findOne({name:Name})})
+    
+    
 })
 app.post('/',(req,res)=>res.send(`Hello ${req.body.name}`))
 app.listen(5000,()=>console.log("Server running"))
