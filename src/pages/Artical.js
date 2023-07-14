@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import articles from "./Artical-content";
 import Articals from "../components/Articals";
@@ -6,6 +6,22 @@ import NotFound from "./404";
 
 const Artical=()=>{
     const {name}=useParams()
+    
+    const {articalInfo,setarticalInfo}=useState({
+        comments:[]
+    });
+    // this use effect runs only if name of the
+    // parameter gets updated
+     useEffect(()=>{
+        const fecthData= async()=>{
+            const res=await fetch(`/api/articles/${name}`)
+            const body=(await res).json()
+            console.log(body)
+            setarticalInfo(body)
+        }
+        fecthData();
+     },[name])
+
     var otherArticels="No Articels"
     const con=articles.find(arr=>arr.name===name)
     if (!con) return <NotFound></NotFound>
