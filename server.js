@@ -18,10 +18,11 @@ await client.connect();
 const db = client.db("MernBlog");
 const collec = db.collection('Articels');
 const data=await collec.findOne({name:Name})
-    res.status(200).send({"data":data})
+client.close();
+res.status(200).json(data)
 
 } catch (error) {
-   res.status(500).send({"err":error}) 
+   res.status(500).json({"error":error}) 
 }
     
 })
