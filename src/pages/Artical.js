@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import articles from "./Artical-content";
 import Articals from "../components/Articals";
 import NotFound from "./404";
+import AddCommentForm from "../components/AddComments";
 import CommentsList from "../components/Commentslist";
 
 const Artical=()=>{
@@ -15,7 +16,7 @@ const Artical=()=>{
     // parameter gets updated
      useEffect(()=>{
         const fecthData= async()=>{
-            const res=await fetch(`/api/articles/${name}`)
+            const res=await fetch(`api/articles/${name}`)
             const body=(await res).json()
             console.log(body)
             setarticalInfo(body)
@@ -32,7 +33,7 @@ const Artical=()=>{
 <p className="mx-auto leading-relaxed text-base mb-4">
       {con.content}
 </p>
-
+<AddCommentForm name={name} setArticle={setarticalInfo}></AddCommentForm>
 <h1 className="sm:text-2xl text-xl font-bold my-4 text-gray-900">Other Articels</h1>
       <div className="flex flex-wrap -m-4">
         <Articals article={otherArticels}></Articals>
