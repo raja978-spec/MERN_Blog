@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-width: 100vw;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+form{
+    min-width: 35vw;
+    min-height: 50vh;
+    color: white;
+    font-size: 19px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    background-color: rgba(0,0,0,0.4);
+    border: 1px solid white;
+    padding: 20px 40px;  
+    border-radius:30px 15px 30px 15px;
+}
+h2{
+    /*text-align: center;
+    color: transparent;
+    -webkit-text-stroke: 1px white;*/
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: deeppink;
+    text-shadow: 0px 0px  5px pink,
+    0px 0px 6px pink,
+    0px 0px 7px pink,
+    0px 0px 8px pink,
+    0px 0px 9px pink
+    ; 
+    text-align: center;
+}
+.form-group{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 15px;
+    letter-spacing:2px;
+    row-gap: 10px;
+}
+#phonenumber,#departmnet,#name1,#rollno,#collegename{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom:1px solid rgba(0,0,0,0.7);
+    font-size: 18px;
+    padding: 0 5px;
+    width: 90%;
+    color: black;
+    letter-spacing: 1.5px;
+}
+.btn{
+    margin: 0 10px;
+    height: 45px;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #007bff;
+    transition: all 0.3s ease;
+}
+.btn:hover{
+    color: #fff;
+    background: #007bff;
+}
+hr
+{
+    border-color: deeppink;
+    box-shadow: 0px 0px  5px pink,
+    0px 0px 6px pink,
+    0px 0px 7px pink,
+    0px 0px 8px pink,
+    0px 0px 9px pink
+    ;
+
+}
